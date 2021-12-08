@@ -9,6 +9,7 @@
 import string
 import pandas as pd
 import secrets
+import numpy
 pd.set_option('display.max_rows', 100)
 
 import string
@@ -74,7 +75,7 @@ ascii_char
 
 def xor_encrypt(message):
     num_list = [ord(char) for char in message]
-    key = secrets.choice(range(128))
+    key = round(secrets.choice(range(128)) + numpy.pi)
     encrypt_list = [num ^ key for num in num_list]
     return [''.join([num.to_bytes((num.bit_length() + 7) // 8, 'big').decode() for num in encrypt_list]), key]
 
@@ -117,7 +118,7 @@ num_list
 
 
 num_list = [ord(char) for char in message]
-key = secrets.choice(range(128))
+key = round(secrets.choice(range(125)) + numpy.pi). ### Ao gerador de numero pseudo-aletorio, realizei soma de pi p/ gerar chave.
 encrypt_list = [num ^ key for num in num_list]
 ''.join([num.to_bytes((num.bit_length() + 7) // 8, 'big').decode() for num in encrypt_list])
 
